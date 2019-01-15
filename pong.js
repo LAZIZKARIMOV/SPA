@@ -1,18 +1,18 @@
-// класс определяющий параметры игрового прямоугольника и метод для его отрисовки
+// ГЄГ«Г Г±Г± Г®ГЇГ°ГҐГ¤ГҐГ«ГїГѕГ№ГЁГ© ГЇГ Г°Г Г¬ГҐГІГ°Г» ГЁГЈГ°Г®ГўГ®ГЈГ® ГЇГ°ГїГ¬Г®ГіГЈГ®Г«ГјГ­ГЁГЄГ  ГЁ Г¬ГҐГІГ®Г¤ Г¤Г«Гї ГҐГЈГ® Г®ГІГ°ГЁГ±Г®ГўГЄГЁ
 
 function rect(color, x, y, width, height) {
-    this.color = color; // цвет прямоугольника
-    this.x = x; // координата х
-    this.y = y; // координата у
-    this.width = width; // ширина
-    this.height = height; // высота
-    // функция рисует прямоугольник согласно заданным параметрам
+    this.color = color; // Г¶ГўГҐГІ ГЇГ°ГїГ¬Г®ГіГЈГ®Г«ГјГ­ГЁГЄГ 
+    this.x = x; // ГЄГ®Г®Г°Г¤ГЁГ­Г ГІГ  Гµ
+    this.y = y; // ГЄГ®Г®Г°Г¤ГЁГ­Г ГІГ  Гі
+    this.width = width; // ГёГЁГ°ГЁГ­Г 
+    this.height = height; // ГўГ»Г±Г®ГІГ 
+    // ГґГіГ­ГЄГ¶ГЁГї Г°ГЁГ±ГіГҐГІ ГЇГ°ГїГ¬Г®ГіГЈГ®Г«ГјГ­ГЁГЄ Г±Г®ГЈГ«Г Г±Г­Г® Г§Г Г¤Г Г­Г­Г»Г¬ ГЇГ Г°Г Г¬ГҐГІГ°Г Г¬
     this.draw = function() {
         context.fillStyle = this.color;
         context.fillRect(this.x, this.y, this.width, this.height);
     };
 }
-// функция проверяет пересекаются ли переданные ей прямоугольные объекты
+// ГґГіГ­ГЄГ¶ГЁГї ГЇГ°Г®ГўГҐГ°ГїГҐГІ ГЇГҐГ°ГҐГ±ГҐГЄГ ГѕГІГ±Гї Г«ГЁ ГЇГҐГ°ГҐГ¤Г Г­Г­Г»ГҐ ГҐГ© ГЇГ°ГїГ¬Г®ГіГЈГ®Г«ГјГ­Г»ГҐ Г®ГЎГєГҐГЄГІГ»
 
 function collision(objA, objB) {
     if (objA.x + objA.width > objB.x && objA.x < objB.x + objB.width && objA.y + objA.height > objB.y && objA.y < objB.y + objB.height) {
@@ -22,11 +22,11 @@ function collision(objA, objB) {
         return false;
     }
 }
-// движение оппонента
+// Г¤ГўГЁГ¦ГҐГ­ГЁГҐ Г®ГЇГЇГ®Г­ГҐГ­ГІГ 
 
 function aiMove() {
     var y;
-    // делаем скорость оппонента зависимой от скорости шарика
+    // Г¤ГҐГ«Г ГҐГ¬ Г±ГЄГ®Г°Г®Г±ГІГј Г®ГЇГЇГ®Г­ГҐГ­ГІГ  Г§Г ГўГЁГ±ГЁГ¬Г®Г© Г®ГІ Г±ГЄГ®Г°Г®Г±ГІГЁ ГёГ Г°ГЁГЄГ 
     switch (ball.vY) {
     case 2:
         vY = 2;
@@ -67,14 +67,14 @@ function aiMove() {
         ai.y = y;
     }
 }
-// движение игрока
+// Г¤ГўГЁГ¦ГҐГ­ГЁГҐ ГЁГЈГ°Г®ГЄГ 
 
 function playerMove(e) {
     if (start) {
         var y = e.pageY;
-        // условие проверяет не выходит ли ракетка за пределы поля
+        // ГіГ±Г«Г®ГўГЁГҐ ГЇГ°Г®ГўГҐГ°ГїГҐГІ Г­ГҐ ГўГ»ГµГ®Г¤ГЁГІ Г«ГЁ Г°Г ГЄГҐГІГЄГ  Г§Г  ГЇГ°ГҐГ¤ГҐГ«Г» ГЇГ®Г«Гї
         if (player.height / 2 + 10 < y && y < game.height - player.height / 2 - 10) {
-            // привязываем положение мыши к середине ракетки
+            // ГЇГ°ГЁГўГїГ§Г»ГўГ ГҐГ¬ ГЇГ®Г«Г®Г¦ГҐГ­ГЁГҐ Г¬Г»ГёГЁ ГЄ Г±ГҐГ°ГҐГ¤ГЁГ­ГҐ Г°Г ГЄГҐГІГЄГЁ
             player.y = y - player.height / 2;
         }
     }
@@ -89,27 +89,27 @@ function startGame() {
     }
 }
 
-// отрисовка игры
+// Г®ГІГ°ГЁГ±Г®ГўГЄГ  ГЁГЈГ°Г»
 
 function draw() {
-    game.draw(); // игровое поле
-    // разделительная полоса
+    game.draw(); // ГЁГЈГ°Г®ГўГ®ГҐ ГЇГ®Г«ГҐ
+    // Г°Г Г§Г¤ГҐГ«ГЁГІГҐГ«ГјГ­Г Гї ГЇГ®Г«Г®Г±Г 
     for (var i = 10; i < game.height; i += 45) {
         context.fillStyle = "#EB1C00";
         context.fillRect(game.width / 2 - 10, i, 20, 30);
     }
-    // рисуем на поле счёт
+    // Г°ГЁГ±ГіГҐГ¬ Г­Г  ГЇГ®Г«ГҐ Г±Г·ВёГІ
     context.font = 'bold 128px courier';
     context.textAlign = 'center';
     context.textBaseline = 'top';
     context.fillStyle = '#ccc';
     context.fillText(ai.scores, 100, 0);
     context.fillText(player.scores, game.width - 100, 0);
-    ai.draw(); // левая ракетка
-    player.draw(); // ракетка игрока
-    ball.draw(); // шарик
+    ai.draw(); // Г«ГҐГўГ Гї Г°Г ГЄГҐГІГЄГ 
+    player.draw(); // Г°Г ГЄГҐГІГЄГ  ГЁГЈГ°Г®ГЄГ 
+    ball.draw(); // ГёГ Г°ГЁГЄ
     if (!start) {
-        // вывод статстики
+        // ГўГ»ГўГ®Г¤ Г±ГІГ ГІГ±ГІГЁГЄГЁ
         context.fillStyle = "#ccc";
         context.globalAlpha = 0.7;
         context.fillRect(0, 0, game.width, game.height);
@@ -126,42 +126,42 @@ function draw() {
         context.fillStyle = '#000';
         context.fillText("click on me", game.width / 2, game.height / 2 + 25);
         context.textBaseline = 'bottom';
-        context.fillText("Volodina K.", game.width / 2, game.height);
+        context.fillText("Karimov L.", game.width / 2, game.height);
     }
 }
-// игровые изменения которые нужно произвести
+// ГЁГЈГ°Г®ГўГ»ГҐ ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГї ГЄГ®ГІГ®Г°Г»ГҐ Г­ГіГ¦Г­Г® ГЇГ°Г®ГЁГ§ГўГҐГ±ГІГЁ
 
 function update() {
-    // двигаем ракетку оппонента
+    // Г¤ГўГЁГЈГ ГҐГ¬ Г°Г ГЄГҐГІГЄГі Г®ГЇГЇГ®Г­ГҐГ­ГІГ 
     aiMove();
-    // меняем координаты шарика
-    // Движение по оси У
+    // Г¬ГҐГ­ГїГҐГ¬ ГЄГ®Г®Г°Г¤ГЁГ­Г ГІГ» ГёГ Г°ГЁГЄГ 
+    // Г„ГўГЁГ¦ГҐГ­ГЁГҐ ГЇГ® Г®Г±ГЁ Г“
     if (ball.y < 0 || ball.y + ball.height > game.height) {
-        // соприкосновение с полом и потолком игрового поля
+        // Г±Г®ГЇГ°ГЁГЄГ®Г±Г­Г®ГўГҐГ­ГЁГҐ Г± ГЇГ®Г«Г®Г¬ ГЁ ГЇГ®ГІГ®Г«ГЄГ®Г¬ ГЁГЈГ°Г®ГўГ®ГЈГ® ГЇГ®Г«Гї
         ball.vY = -ball.vY;
     }
-    // Движение по оси Х
+    // Г„ГўГЁГ¦ГҐГ­ГЁГҐ ГЇГ® Г®Г±ГЁ Г•
     if (ball.x < 0) {
-        // столкновение с левой стеной
+        // Г±ГІГ®Г«ГЄГ­Г®ГўГҐГ­ГЁГҐ Г± Г«ГҐГўГ®Г© Г±ГІГҐГ­Г®Г©
         ball.vX = -ball.vX;
         player.scores++;
     }
     if (ball.x + ball.width > game.width) {
-        // столкновение с правой
+        // Г±ГІГ®Г«ГЄГ­Г®ГўГҐГ­ГЁГҐ Г± ГЇГ°Г ГўГ®Г©
         ball.vX = -ball.vX;
         ai.scores++;
     }
 
-    // Если счёт равен десяти то завершаем партию
+    // Г…Г±Г«ГЁ Г±Г·ВёГІ Г°Г ГўГҐГ­ Г¤ГҐГ±ГїГІГЁ ГІГ® Г§Г ГўГҐГ°ГёГ ГҐГ¬ ГЇГ Г°ГІГЁГѕ
     if (ai.scores === 10 || player.scores === 10) {
-        if (ai.scores === 10) { // победа ai
+        if (ai.scores === 10) { // ГЇГ®ГЎГҐГ¤Г  ai
             game.lose++;
             start = false;
             ball.x = game.width - player.width - 1.5 * ball.width - 10;
             ball.y = game.height / 2 - ball.width / 2;
             ai.y = game.height / 2 - ai.height / 2;
             player.y = game.height / 2 - ai.height / 2;
-        } else { // победа игрока
+        } else { // ГЇГ®ГЎГҐГ¤Г  ГЁГЈГ°Г®ГЄГ 
             game.win++;
             start = false;
             ball.x = player.width + ball.width;
@@ -176,9 +176,9 @@ function update() {
         game.total++;
     }
 
-    // Соприкосновение с ракетками
+    // Г‘Г®ГЇГ°ГЁГЄГ®Г±Г­Г®ГўГҐГ­ГЁГҐ Г± Г°Г ГЄГҐГІГЄГ Г¬ГЁ
     if ((collision(ai, ball) && ball.vX < 0) || (collision(player, ball) && ball.vX > 0)) {
-        // приращение скорости шарика
+        // ГЇГ°ГЁГ°Г Г№ГҐГ­ГЁГҐ Г±ГЄГ®Г°Г®Г±ГІГЁ ГёГ Г°ГЁГЄГ 
         if (ball.vX < 9 && -9 < ball.vX) {
             if (ball.vX < 0) {
                 ball.vX--;
@@ -193,35 +193,35 @@ function update() {
         }
         ball.vX = -ball.vX;
     }
-    // приращение координат
+    // ГЇГ°ГЁГ°Г Г№ГҐГ­ГЁГҐ ГЄГ®Г®Г°Г¤ГЁГ­Г ГІ
     ball.x += ball.vX;
     ball.y += ball.vY;
 }
 
 function play() {
-    draw(); // отрисовываем всё на холсте
-    update(); // обновляем координаты
+    draw(); // Г®ГІГ°ГЁГ±Г®ГўГ»ГўГ ГҐГ¬ ГўГ±Вё Г­Г  ГµГ®Г«Г±ГІГҐ
+    update(); // Г®ГЎГ­Г®ГўГ«ГїГҐГ¬ ГЄГ®Г®Г°Г¤ГЁГ­Г ГІГ»
 }
-// Инициализация переменных
+// Г€Г­ГЁГ¶ГЁГ Г«ГЁГ§Г Г¶ГЁГї ГЇГҐГ°ГҐГ¬ГҐГ­Г­Г»Гµ
 
 function init() {
     start = false;
-    // объект который задаёт игровое поле
+    // Г®ГЎГєГҐГЄГІ ГЄГ®ГІГ®Г°Г»Г© Г§Г Г¤Г ВёГІ ГЁГЈГ°Г®ГўГ®ГҐ ГЇГ®Г«ГҐ
     game = new rect("#000", 0, 0, 480, 320);
     game.total = 0;
     game.win = 0;
     game.lose = 0;
-    // Ракетки-игроки
+    // ГђГ ГЄГҐГІГЄГЁ-ГЁГЈГ°Г®ГЄГЁ
     ai = new rect("#52E1FF", 10, game.height / 2 - 40, 20, 80);
     player = new rect("#52E1FF", game.width - 30, game.height / 2 - 40, 20, 80);
-    // количество очков
+    // ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г®Г·ГЄГ®Гў
     ai.scores = 0;
     player.scores = 0;
-    // наш квадратный игровой "шарик"
+    // Г­Г Гё ГЄГўГ Г¤Г°Г ГІГ­Г»Г© ГЁГЈГ°Г®ГўГ®Г© "ГёГ Г°ГЁГЄ"
     ball = new rect("#FAF500", 40, game.height / 2 - 10, 20, 20);
-    // скорость шарика
-    ball.vX = 0; // скорость по оси х
-    ball.vY = 0; // скорость по оси у
+    // Г±ГЄГ®Г°Г®Г±ГІГј ГёГ Г°ГЁГЄГ 
+    ball.vX = 0; // Г±ГЄГ®Г°Г®Г±ГІГј ГЇГ® Г®Г±ГЁ Гµ
+    ball.vY = 0; // Г±ГЄГ®Г°Г®Г±ГІГј ГЇГ® Г®Г±ГЁ Гі
     var canvas = document.getElementById("canvas");
     canvas.width = game.width;
     canvas.height = game.height;
